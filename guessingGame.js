@@ -140,11 +140,18 @@ function playAgain(){
     $('.guesses').hide();
     $('body').css('background-image', 'none');
     $('.main-content').css('opacity','1');
+    $('form').show();
+	$('#submit-button').show();
+	$('#hint-button').show();
+
 }
 
 function endGame(state){
 
 		$('.guesses').hide();
+		$('form').hide();
+		$('#submit-button').hide();
+		$('#hint-button').hide();
 
 	if (state == "winner"){
 		$('.alerts').find('p').html("You won! It took you " + guessesNum + " attempts." );
