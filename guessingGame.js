@@ -63,8 +63,6 @@ function checkGuess(){
 			endGame("loser");
 		}
 
-		$('.alerts').find('p').html("You won! It took you " + guessesNum + " attempts." );
-		$('.alerts').show();
 		// $('#play-button').text('Play Again!');
 		endGame("winner");
 	}
@@ -133,16 +131,26 @@ function playAgain(){
     guessesNum = 0;
     $('#play-button').text('Reset Game');
     $('.alerts').hide();
+    $('body').css('background-image', 'none');
+    $('.main-content').css('opacity','1');
 }
 
 function endGame(state){
 	if (state == "winner"){
-		$('#play-button').text('Play Again!');
+		$('.alerts').find('p').html("You won! It took you " + guessesNum + " attempts." );
+		$('.alerts').css('background-color', 'gold');
+		$('body').css('background-image','url(images/gold-medal.jpg)');
+		$('.main-content').css('opacity','.9');
 	}
 
 	else if (state == "loser"){
-
+		$('.alerts').find('p').html("You lost!" );
+		$('body').css('background-image','url(images/sad-face.jpg)');
+		$('.main-content').css('opacity','.9');
 	}
+
+	$('.alerts').show();
+	$('#play-button').text('Play Again!');
 }
 
 /* **** Event Listeners/Handlers ****  */
