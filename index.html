@@ -17,6 +17,10 @@
 				Guess and I will tell you if your number is too high or too low.</h2>
 		</div>
 
+		<div class = "alerts">
+			<p> </p>
+		</div>
+
 		<div class = "input-box">
 			<form>
 				<label for="num-box"> Enter your guess: </label>
@@ -25,10 +29,10 @@
 		</div>
 
 		<div class = "buttons">
-			<button type="button">Submit Guess</button>
+			<button type="button" id="submit-button">Submit Guess</button>
 			<div class = "two-buttons-div">
-				<button type="button">Play Again</button>
-				<button type="button">I Quit </button>
+				<button type="button" id = "play-button">Reset Game</button>
+				<button type="button" id = "hint-button">Hint </button>
 			</div>
 		</div>
 	</div>
@@ -37,5 +41,7 @@
 		<p> Developed by <a href ="http://github.com/verasveras/">Lisa Veras</a>.
 	</div>
 
-</body
+	<script type="text/javascript" src = "jquery-3.0.0.js"></script>
+	<script type="text/javascript" src = "guessingGame.js"></script>
+</body>
 </html>
