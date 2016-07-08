@@ -1,9 +1,11 @@
-/* **** Global Variables **** */
-// try to elminate these global variables in your project, these are here just to start.
+
+$(document).ready (function() {
+
 var playersGuess;
 var winningNumber = generateWinningNumber();
 var guesses = [];
 var guessesNum = 0;
+
 
 /* **** Guessing Game Functions **** */
 
@@ -13,9 +15,10 @@ function generateWinningNumber(){
 	return Math.floor((Math.random()) * 100) + 1;
 }
 
-// Fetch the Players Guess
+// Fetch the Players Guess 
 
 function playersGuessSubmission(){
+
 
 	if ($('input').val() == '') {
 		alert("You did not input a guess!");
@@ -76,6 +79,8 @@ function checkGuess(){
 				else {
 					$('.alerts').find('p').text(guessMessage);
 					$('.alerts').show();
+					$('.guesses').find('p').text("Previous guesses: " + guesses.toString());
+					$('.guesses').show();
 				}
 			}
 			
@@ -130,12 +135,17 @@ function playAgain(){
     guesses = [];
     guessesNum = 0;
     $('#play-button').text('Reset Game');
+    $('.alerts').css('background-color', 'white');
     $('.alerts').hide();
+    $('.guesses').hide();
     $('body').css('background-image', 'none');
     $('.main-content').css('opacity','1');
 }
 
 function endGame(state){
+
+		$('.guesses').hide();
+
 	if (state == "winner"){
 		$('.alerts').find('p').html("You won! It took you " + guessesNum + " attempts." );
 		$('.alerts').css('background-color', 'gold');
@@ -144,7 +154,7 @@ function endGame(state){
 	}
 
 	else if (state == "loser"){
-		$('.alerts').find('p').html("You lost!" );
+		$('.alerts').find('p').html("You lost! The number was " + winningNumber + ".");
 		$('body').css('background-image','url(images/sad-face.jpg)');
 		$('.main-content').css('opacity','.9');
 	}
@@ -153,8 +163,22 @@ function endGame(state){
 	$('#play-button').text('Play Again!');
 }
 
+
+
+
 /* **** Event Listeners/Handlers ****  */
 $('#submit-button').on('click', playersGuessSubmission);
 $('#hint-button').on('click', provideHint);
 $('#play-button').on('click', playAgain);
 
+
+
+$(':input').on('keyup', function(e){
+       var code = e.which;
+        if(code == 13){
+            playersGuessSubmission();   
+  		}
+});
+
+
+});

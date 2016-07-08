@@ -6,6 +6,8 @@
 
 <head>
 	<link type="text/css" rel="stylesheet" href = "main.css"/>
+	<script type="text/javascript" src = "jquery-3.0.0.js"></script>
+	<script type="text/javascript" src = "guessingGame.js"></script>
 </head>
 
 <body>
@@ -21,8 +23,12 @@
 			<p> </p>
 		</div>
 
+		<div class = "guesses">
+			<p> </p>
+		</div>
+
 		<div class = "input-box">
-			<form>
+			<form id = "form-box" onsubmit="return false">
 				<label for="num-box"> Enter your guess: </label>
 				<input type = "text" for="num-box">
 			</form>
@@ -40,8 +46,5 @@
 	<div class = "footer">
 		<p> Developed by <a href ="http://github.com/verasveras/">Lisa Veras</a>.
 	</div>
-
-	<script type="text/javascript" src = "jquery-3.0.0.js"></script>
-	<script type="text/javascript" src = "guessingGame.js"></script>
 </body>
 </html>
